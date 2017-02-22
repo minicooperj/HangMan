@@ -1,0 +1,130 @@
+@import url("http://fonts.googleapis.com/css?family=Fjalla+One");
+
+body {
+  background: black;
+  text-align: center;
+  padding-top: 5em;
+ 
+  }
+
+h1 {
+  font: normal 6em/1.1 'Fjalla One', Arial, sans-serif;
+  color: #7a2020;
+  text-transform: uppercase;
+  border: .125em solid #7a2020;
+  display: inline-block;
+  border-radius: .2em;
+  padding: .15em .15em 0.075em;
+
+  -webkit-mask-image: url(http://f.cl.ly/items/131E0X1b1i0X1s263R00/a.png);
+  -webkit-transform: rotate(-5deg);
+
+  -moz-mask-image: url(http://f.cl.ly/items/131E0X1b1i0X1s263R00/a.png);
+  -moz-transform: rotate(-5deg);
+
+  -o-mask-image: url(http://f.cl.ly/items/131E0X1b1i0X1s263R00/a.png);
+  -o-transform: rotate(-5deg);
+
+  mask-image: url(http://f.cl.ly/items/131E0X1b1i0X1s263R00/a.png);
+  transform: rotate(-5deg);
+}
+
+h1:before, h1:after { content: "×"; margin: 0 .125em; }
+
+h2 {
+  font: normal 4em/1.1 'Fjalla One', Arial, sans-serif;
+  color: #bc3798;
+  text-transform: lowercase;
+  border: .125em solid #bc3798;
+  display: inline-block;
+  border-radius: .2em;
+  padding: .15em .15em 0.075em;
+
+  -webkit-mask-image: url(http://f.cl.ly/items/131E0X1b1i0X1s263R00/a.png);
+  -webkit-transform: rotate(10deg);
+
+  -moz-mask-image: url(http://f.cl.ly/items/131E0X1b1i0X1s263R00/a.png);
+  -moz-transform: rotate(10deg);
+
+  -o-mask-image: url(http://f.cl.ly/items/131E0X1b1i0X1s263R00/a.png);
+  -o-transform: rotate(10deg);
+
+  mask-image: url(http://f.cl.ly/items/131E0X1b1i0X1s263R00/a.png);
+  transform: rotate(10deg);
+}
+
+h2:before, h2:after { content: "!"; margin: 0 .125em; }
+
+
+/* Pen-specific styles */
+
+.container  html, body, section {
+  height: 100%;
+}
+
+.container body {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 1.25rem;
+  line-height: 150%;
+  text-align: center;
+  text-shadow: 0 2px 2px #b6701e;
+  
+  }
+
+.container div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.75rem 0;
+}
+
+/* Pattern styles */
+.container {
+  display: flex;
+  padding-top: 75px;
+  width:50%;
+  margin: 0 auto;
+
+
+}
+
+.left-half {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fefcea+0,f1da36+100;Gold+3D */
+  background: #fefcea; /* Old browsers */
+  background: -moz-linear-gradient(top,  #fefcea 0%, #f1da36 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #fefcea 0%,#f1da36 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #fefcea 0%,#f1da36 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#f1da36',GradientType=0 ); /* IE6-9 */
+  color: black;
+  flex: 1;
+  padding: 6rem;
+  border-style: solid;
+  border-width: 10px 5px 10px 10px;
+  border-color: orange;
+}
+
+.right-half {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f6f6f6+47,ededed+100;White+3D+%231 */
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ffffff 0%, #f6f6f6 47%, #ededed 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+  color:black;
+  flex: 1;
+  padding: 6rem;
+  border-style: solid;
+  border-width: 10px 10px 10px 5px;
+  border-color: orange;
+}
+
+
+.popupimages {
+
+  width:100%;
+}
