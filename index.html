@@ -4,7 +4,7 @@
 	<meta charset="utf-8" lang="en-US">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script type="text/javascript" src="assets/javascript/game.js"></script>
+	
 
 	<title>New Wave Hangman</title>
 </head>
@@ -26,20 +26,23 @@
   </div>
   <div class="right-half">
     <article>
-      	<p>Press any key to get started</p>
+      	<h3>Press any key to get started</h3>
   		<br>
-      	<p>Wins</p>
+      	<h3>Wins</h3>
+        <p id="winNumber"></p>
       	<hr>
-      	<p id="placeholders">Current Word</p>
+      	<h3>Current Word</h3>
       	<br>
-      	<p></p>
-      	<p>Number of Guess<br>remaining</p>
+        <p id="placeholders"></p>
+      	<h3>Number of Guesses<br>remaining</h3>
       	<br>
-      	<p>Number</p>
+      	<p id="guessNumber">Number</p>
       	<br>
-      	<p>Letters Already<br>Guessed</p>
+      	<h3>Letters Already<br>Guessed</h3>
 		<br>
-		<p>Guessed Letters</p>
+		<h3>Guessed Letters</h3>
+    <br>
+    <p id="guessedLetters"></p>
     </article>
   </div>
 </section>
@@ -49,6 +52,6 @@
 
 
 
-
+<script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>
