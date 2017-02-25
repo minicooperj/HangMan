@@ -1,7 +1,9 @@
 		//Set up Global Vars
 			var hangWords  = ["blondie", "morrissey", "devo", "inxs", "eurhythmics", "New Order", "Dead Kennedies", "X-Ray Spex"];	
 
-			var placeholderDiv = document.getElementById("placeholders");				
+			var placeholderDiv = document.getElementById("placeholders");	
+
+			var letters = ['a','b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];			
 
 			var letterCount;
 
@@ -14,6 +16,8 @@
 
 			var keyPressed;
 
+			var guessedLetters = document.getElementById("guessedLetters");
+
 		// var answerArray = setupAnswerArray(word);
 		// 	for (var i = 0; i < word.length; i++) {
 		// 		answerArray[i] = "_";};	
@@ -21,39 +25,47 @@
 		// Function to create Placeholder Array
 		 function setupAnswerArray() {	
 		 		var answerArray=[];
-		 		// Optional to create new div for _ _ _ 
-		 		// var newDiv = document.createElement("div"); 
-			 	// placeholderDiv.appendChild(newDiv);  
+											 		
 				 for (var i = 0; i <word.length; i++){
-				 	if (word[i] === " ") {
-				 		answerArray[i] = "  ";		
-				 	}
-				 	else if (word[i] === "-") {
+				 	if (word[i] === " ") 	{
+				 		answerArray[i] = "   ";		
+				 							}
+				 	else if (word[i] === "-") 	{
 				 		answerArray[i] = " - ";
-				 	}
-				 	else {
+				 								}
+				 	else 			{
 				 answerArray[i] = " _ ";
 				 placeholderDiv.innerHTML = answerArray};
 									};
+													};
+
+
+        document.onkeyup = function GetChar (event){
+            var keyCode = ('which' in event) ? event.which : event.keyCode;
+            if (event.keyCode >= 65 && event.keyCode <= 90) {
+            keyPressed = String.fromCharCode(keyCode).toLowerCase();}
+        	console.log(keyPressed);
+            
+        };
+
 		
 		// Function to track if letter is in word, if not, add to guessed letter
 
-		function guessLetter() {
-			for (var j = 0; j < word.length; j++) {
-				if ( word.indexOf(keyPressed) === -1) {
-					
-				}
+		document.onkeyup = function guessLetter(event) {
+			alert("guessletter");
+			// for (var j = 0; j < word.length; j++) {
+			// 	if ( word[j] === keyPressed) {
+			// 		placeholderDiv.innerHTML = keyPressed}
 
-				}
-
-
-
+				// else ()
+				
 
 		};
 
 
 		console.log(word);
 		setupAnswerArray();
+	
 		
 
 		
