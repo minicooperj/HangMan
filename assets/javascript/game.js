@@ -9,160 +9,117 @@
 
 			var guessCount = 12;
 		// Function to choose random word 
-			function pickWord(array) {
-				return hangWords[Math.floor(Math.random() * hangWords.length)]
-								};
-			var word = pickWord();
+			
+			var currentWord;
+
+			var currentWordFull;
 
 			var keyPressed;
 
 			var guessedLetters = document.getElementById("guessedLetters");
 
-		// var answerArray = setupAnswerArray(word);
-		// 	for (var i = 0; i < word.length; i++) {
-		// 		answerArray[i] = "_";};	
+			function wrongGuess() {
+				guessCount = guessCount-1;
+				if (guessCount === 0) {
+					alert("You're dead");
+					
+				};
+			}
+
+
+			function winMessage(){
+    var correctlyGuessedLettersCount = $(".is-letter > span").length;
+    if (correctlyGuessedLettersCount === currentWord.length) {
+      alert("You win")
+    };	
+  }
+
+
+		function wordSelect (array) {
+    	var num = Math.floor(Math.random() * (array.length - 1));
+    	var word = array[num];
+   		 return word;
+ 									 }
+
 
 		// Function to create Placeholder Array
-		 function setupAnswerArray() {	
-		 		var answerArray=[];
-											 		
-				 for (var i = 0; i <word.length; i++){
-				 	if (word[i] === " ") 	{
-				 		answerArray[i] = "   ";		
-				 							}
-				 	else if (word[i] === "-") 	{
-				 		answerArray[i] = " - ";
-				 								}
-				 	else 			{
-				 answerArray[i] = " _ ";
-				 placeholderDiv.innerHTML = answerArray};
-									};
-													};
+		function setWordToBeGuessed(){
 
+	   		currentWordFull = wordSelect(hangWords);
+
+	    	//set an all upper case version of the current word
+	   		currentWord = currentWordFull.toUpperCase();
+	    
+	    	//creates blocks in the DOM indicating where there are letters and spaces
+		   	currentWord.split("").map(function(character) {
+	    	
+	    	var guessWordBlock = document.getElementById("placeholders");
+
+	      	var domElem = document.createElement("div");
+
+	      	if (character.match(/[a-z]/i)) {
+	        domElem.className = "character-block is-letter";
+
+	      } else {
+	        domElem.className = "character-block";
+	      }
+
+	      guessWordBlock.appendChild(domElem);
+    	});
+  			}
+		
 
         document.onkeyup = function GetChar (event){
-            var keyCode = ('which' in event) ? event.which : event.keyCode;
-            if (event.keyCode >= 65 && event.keyCode <= 90) {
-            keyPressed = String.fromCharCode(keyCode).toLowerCase();}
-        	console.log(keyPressed);
+            	var keyCode = ('which' in event) ? event.which : event.keyCode;
             
+            		if (event.keyCode >= 65 && event.keyCode <= 90) {
+            		keyPressed = String.fromCharCode(keyCode).toUpperCase();}
+        			
+        			console.log(keyPressed);
+        			handlePickedLetter(keyPressed);
+          
+    
         };
 
+        function handlePickedLetter(keyPressed) {
+        	var resultMatches = [];
+        	var ind = currentWord.indexOf(keyPressed);
+
+        	 // if letterPicked matches one or more letters in the current word
+   			 // push all instances of that letter to resultMatches
+    		while (ind !== -1) {
+      		resultMatches.push(ind);
+      		ind = currentWord.indexOf(keyPressed, ind + 1);
+    							}
+
+    		//if resultMatches is greater than 0 proceed to place them in the dom
+    		if (resultMatches.length > 0) {
+      		var letterBlocks = document.getElementsByClassName("is-letter");
+      		resultMatches.map(function(num) {
+
+        	var domElem = document.createElement("span");
+        	domElem.innerHTML = currentWordFull[num].toUpperCase();
+        	letterBlocks[num].appendChild(domElem);
+        	winMessage();
+        
+
+      });
+    //if letterBlock is not greater than 0 put the letter in the graveyard
+    } else {
+      var domElem = document.createElement("div");
+      domElem.className = "guessed-letter";
+      domElem.innerHTML = keyPressed;
+      document.getElementById("guessedLetters").appendChild(domElem);
+      wrongGuess();
+
+    }
+  }
 		
-		// Function to track if letter is in word, if not, add to guessed letter
-
-		document.onkeyup = function guessLetter(event) {
-			alert("guessletter");
-			// for (var j = 0; j < word.length; j++) {
-			// 	if ( word[j] === keyPressed) {
-			// 		placeholderDiv.innerHTML = keyPressed}
-
-				// else ()
-				
-
-		};
-
-
-		console.log(word);
-		setupAnswerArray();
+setWordToBeGuessed();
+handlePickedLetter();
 	
 		
 
 		
 
-		// Check & count letter function 
-
-		// var count = function(string, ch) {
-		// 	var counted = 0;
-		// 	for (var i = 0; i < string.length; i++) 
-		// 		if (string.charAt(i) === ch) {
-		// 			counted += 1;
-		// 			return counted;
-		// 		}
-		// }
-
-		// console.log(setupAnswerArray());
-			
-
-		// var answerArray = setupAnswerArray();
-
-		// var remainingLetters = word.length;
-
-		// while (remainingLetters > 0) {
-
-		// };
-
-
-		// function pickWord(array) {
-			// return hangWords[Math.floor(Math.random() * hangWords.length)];
-		// };
-
-		// function setupAnswerArray(word) {
-		// 	for (var i = 0; i < word.length; i++) {
-		// 		return word[i] = "_";}
-
-		// };
-
-
-
 		
-
-
-
-
-// 		// Array of HansetupAnswerArrayd/ 		// Function to select random word from array
-
-// 		var word = words[Math.floor(Math.random()*words.length)];
-
-// 		var answerArray = [];
-// 			for (var i = 0; i < word.length; i++) {
-// 				answerArray[i] = "_";
-// 			};
-
-// 		var remainingLetters = word.length;
-
-// 		while (remainingLetters >0 ) 
-
-// 		{
-// 			alert(answerArray.join(" "));
-
-// 			var guess = prompt("Guess a letter or cancel to stop.")
-// 				if (guess === null) {
-// 					break;
-// 				} else if (guess.length !== 1) {
-// 					alert("Please enter one letter");
-// 				} else {
-// 					//Update game with guess
-// 					for (var j = 0; j < word.length; j++) {
-// 						if (word[j] === guess) {
-// 						answerArray[j] = guess;
-// 						remainingLetters--;}
-// 						}
-						
-// 		}
-//     // The end of the game loop
-// }
-
-
-//     // Show the answer and congratulate the player
-
-//     alert(answerArray.join(" "));
-
-//     alert("Good job! The answer was " + word);
-
-// 		// randomWord: function randomWord() {
-			
-// 		// 	var word = hangMan.words[Math.floor(Math.random()*hangMan.words.length)];
-// 		// 	console.log(word);
-// 		// 	for(var i =0; i < word.length; i++){
-// 		// 		var placeholder = document.getElementById("placeholders");
-// 		// 		var letter = document.createTextNode(word[i]);
-// 		// 		placeholder.appendChild(letter);
-// 		// 	}
-// 		// 		},
-
-// 		// // Function to print placeholders _ _ _ for chosen word
-// 		// placeHolder: function placeHolder() {	} 
-
-// 		// console.log(word);
-// 		// console.log(answerArray);

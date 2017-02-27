@@ -128,3 +128,39 @@ h2:before, h2:after { content: "!"; margin: 0 .125em; }
 
   width:100%;
 }
+
+#placeholders {
+display: inline-block;
+}
+
+#guessedLetters{
+display: inline-block;
+}
+
+.is-letter {
+    box-shadow: 0 0.1em 0 0 black;
+    border-bottom: 1px;
+    display: inline-block;
+}
+
+.character-block {
+    display: inline-block;
+    width: 10px;
+    height: 6px;
+    margin: 3px;
+    vertical-align: top;
+    text-align: center;
+    float: left;
+
+}
+
+.guessed-letter {
+    display: inline-block;
+    width: 10px;
+    height: 6px;
+    margin: 3spx;
+    vertical-align: top;
+    text-align: center;
+    float: left;
+    padding: 3px;
+}
